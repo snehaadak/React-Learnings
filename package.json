@@ -1,0 +1,25 @@
+{
+  "name": "react-learnings",
+  "version": "1.0.0",
+  "description": "All About NPM",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snehaadak/React-Learnings.git"
+  },
+  "author": "Sneha Adak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snehaadak/React-Learnings/issues"
+  },
+  "homepage": "https://github.com/snehaadak/React-Learnings#readme",
+  "devDependencies": {
+    "parcel": "^2.15.1"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
