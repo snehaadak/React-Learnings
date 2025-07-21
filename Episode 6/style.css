@@ -95,3 +95,17 @@
     font-family: sans-serif;
 }
 
+.shimmer-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* card width min 200px */
+    gap: 20px;
+    padding: 20px;
+}
+
+.shimmer-card{
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    background-color: #f0f0f0;
+    border: #111;
+}

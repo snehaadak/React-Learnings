@@ -3,6 +3,7 @@ import CuisineChoices from "./CuisineChoices";
 import { useState} from "react";
 import { useEffect } from "react";
 import resList from "../../Utilities/mockData";
+import Shimmer from "./Shimmer";
 
 
 
@@ -11,7 +12,26 @@ const BodyComp = () => {
 
     const [varResList, setresList] = useState(resList);
 
-    useEffect(()=>{console.log("Use Effect called")},[]);
+//UseEffect Part
+    useEffect(()=>{
+        fetchData();
+    },[]);
+
+    const fetchData = async ()=> {
+        const data = await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6352143&lng=73.7670914&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    
+        const json = await data.json();
+
+        console.log(json);
+        //optional Chaining
+        setresList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+
+//Shimmer UI Component
+  if (resList.length ===0){
+    return <Shimmer/>;
+  }  
+    
     return (
         <div className="body">
             <div className="basicThings">
