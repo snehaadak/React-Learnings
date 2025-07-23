@@ -14,6 +14,8 @@
 - What is `CORS`?
 - Can we use the normal javascript variables instead of `State Variables`? If Not `Why`?
 - If `State Varibales` are defined using `const` how is it getting updated?
+- How `useEffect` Hook works?
+- Imp Points about `useState`
 
 
 
@@ -116,3 +118,15 @@ A: Normal javascript variables do not help with updating or refreshing our UI. L
 ## If `State Varibales` are defined using `const` how is it getting updated?
 A: Every time we render a component it means a function is called newly. on every render cycle we dont actually update the value of state varible but we give the state varible a new default value via setState variable.
 
+
+## How `useEffect` Hook works?
+A: useEffect is called atleast one time for sure after the main component in which it is being used is rendered. Apart from that useEffect works in 3 Approaches. As wea re aware useEffect accepts 2 arguments `useEffect(()=>{},[])` a call back function which is mandatory argument, and a depencdency array which is an optional. The working of the useEffect is dependent on how we handle the dependency array:
+    (1)`useEffect(()=>{})` If no Dependency array, useEffect is called on every render
+    (2)`useEffect(()=>{},[])` If we have the empty dependency array it is only called on initial render and just once.
+    (3)`useEffect(()=>{},[something])` when we add something to the dependency array it is called only when the dependency changes.
+
+
+## Imp Points about `useState`
+A: It is used to create the local state variables inside our functional components
+    - UseState cannot be used independently outside any of our functional component, it can neither suggested to use it inside of any conditions, If-Else, or for loops. It can only be used just inside of a functional component
+    - Always try to mention the useState hooks on the top od functional component to avoid inconsistancy in your codes.
