@@ -116,3 +116,31 @@
     background-color: #f0f0f0;
     border: #111;
 }
+
+.menu{
+  margin: 20px;
+  display: flex;
+  flex-direction: column; /* If cards are stacked vertically */
+  align-items: center;     /* Horizontally center */
+
+}
+
+.about-restro{
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 5px;
+    padding-left: 20px;
+    margin: 5px;
+    width: 750px;
+    background-color: #f0f0f0;
+    gap: 50px;
+}
+
+.menu-cards{
+    border: 1px solid black;
+    border-radius: 0.5em;
+    margin-top: 20px;
+    padding: 5px;
+    width: 750px;
+    background-color: #f0f0f0;
+}

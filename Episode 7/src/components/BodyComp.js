@@ -4,6 +4,7 @@ import { useState} from "react";
 import { useEffect } from "react";
 // import resList from "../../Utilities/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 
 
@@ -68,7 +69,8 @@ const BodyComp = () => {
             <div className="restro-Container">
 
                 {
-                    filteredList.map(restuarant => <RestroCard key={restuarant.info.id} resData = {restuarant}/>)
+                    filteredList.map(restuarant => 
+                    <Link key={restuarant.info.id} to={"/restuarants/"+ restuarant.info.id} ><RestroCard resData = {restuarant}/></Link>)
                 }
             </div>
             
