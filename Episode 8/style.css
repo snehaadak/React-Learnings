@@ -1,0 +1,153 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px SOLID black;
+    padding-right: 5px;
+}
+
+.logo{
+    width: 100px;
+    height: 80px;
+}
+
+.nav-items > ul {
+    font-size: 15px;
+    display: flex;
+    list-style: none;
+}
+
+.nav-items > ul > li {
+    padding: 10px;
+    margin: 10px
+}
+
+.optionsContainer {
+    display: flex;
+    justify-content: space-evenly; /* evenly distributes items */
+    align-items: center;
+    gap: 20px; /* consistent spacing */
+    padding: 10px;
+}
+
+.Options {
+    height: 150px;
+    width: 130px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.Options:hover {
+    transform: scale(1.05); /* optional: add a subtle hover effect */
+}
+
+.Cuisine-choices {
+    padding: 10px;
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
+
+.Restrocard{
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    background-color: #f0f0f0;
+}
+
+.Restrocard:hover{
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.RestroLogo {
+    width: 190px;
+    padding: 5px;
+}
+
+.restro-Container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* card width min 200px */
+    gap: 20px;
+    padding: 20px;
+}
+
+.basicThings{
+    padding: 20px;
+    display: flex;
+}
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
+}
+
+.search{
+    padding-right: 100px;
+    margin: 10px;
+    
+}
+
+.search-box{
+    margin-right: 5px;
+}
+
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #111;
+    color: #fff;
+    padding: 30px 20px;
+    font-family: sans-serif;
+}
+
+.bottom-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* card width min 200px */
+    gap: 20px;
+    padding: 20px;
+}
+
+.shimmer-card{
+    padding: 5px;
+    margin: 5px;
+    width: 200px;
+    height: 300px;
+    background-color: #f0f0f0;
+    border: #111;
+}
+
+.menu{
+  margin: 20px;
+  display: flex;
+  flex-direction: column; /* If cards are stacked vertically */
+  align-items: center;     /* Horizontally center */
+
+}
+
+.about-restro{
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 5px;
+    padding-left: 20px;
+    margin: 5px;
+    width: 750px;
+    background-color: #f0f0f0;
+    gap: 50px;
+}
+
+.menu-cards{
+    border: 1px solid black;
+    border-radius: 0.5em;
+    margin-top: 20px;
+    padding: 5px;
+    width: 750px;
+    background-color: #f0f0f0;
+}
+
+.user-card{
+    padding: 20px;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
