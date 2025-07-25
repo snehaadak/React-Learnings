@@ -6,16 +6,34 @@ class UserClass extends React.Component{
             super(props);
 
             this.state = {
-                count: 0
+                userInfo : {
+                    name : "Dummy Name",
+                    location: "Default Location "
+                },
+                count : 0
             }      
         }
 
+
+    async componentDidMount() {
+
+            const data = await fetch ("https://api.github.com/users/snehaadak");
+            const json = await data.json();
+
+            this.setState ({
+                userInfo : json
+            })
+        }
+
+        
     render(){
+
+        const {name, location} = this.state.userInfo
 
         return (
             <div className="user-card">
-            <h2>Name: Sneha Adak</h2>
-            <h4>Location: Pune, Mahrashtra</h4>
+            <h2>{name}</h2>
+            <h4>{location}</h4>
             <h4>Contact: @snehaadak</h4>
             <h4>This is {this.props.content}</h4>
             <h4>State Variable:{this.state.count}</h4>
