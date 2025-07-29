@@ -1,9 +1,12 @@
 import ItemsList from "./ItemsList"
+import { useState } from "react"
 
 const ResturantCategory = ({data}) => {
+
+    const [showItems,setshowItems] = useState(false);
         
     const handleClick = () => {
-        console.log("Clicked")
+        setshowItems(!showItems);
     }
 
     return (
@@ -13,10 +16,7 @@ const ResturantCategory = ({data}) => {
                 <span className="font-bold text-xl">{data.title} ({data.itemCards.length})</span>
                 <span>🔽</span>
             </div>
-    
-                <ItemsList items={data.itemCards}/>
-
-
+               {showItems && <ItemsList items={data.itemCards}/>} 
         </div>
     )
 }
