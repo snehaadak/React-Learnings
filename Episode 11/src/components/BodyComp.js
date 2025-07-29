@@ -19,7 +19,7 @@ const BodyComp = () => {
 
     const RecommendedRestro = recommended(RestroCard);
 
-    console.log(resList)
+    
 
 //UseEffect Part
     useEffect(()=>{
