@@ -13,7 +13,7 @@
 # Answers:
 
 ## What is `Redux`?
-A:
+A: It is a Library used to manage state
 
 
 ## Why do we `use` Redux?
