@@ -24,7 +24,7 @@ How data is `written` to a slice?
     for Eg: if we have a cart slice and we want to update the data to it once we click on the add to cart button on our page the flow is as follows
     (1) When we click the ADD button it `dispatches an Action`
     (2) Once the action is dispatched it `calls the Function`.
-    (3) and these function is used to modify the slice. for our eg it would be the cart slice. These called function is known as a `Reducer Function`.
+    (3) and these function is used to modify the slice. for our eg it would be the cart slice. These called function is known as a `Reducer Function`. 
 
 How to `read` the data from the slice or redux store to our UI?
     (1) for these we use something called as `selector` to read data from our redux store and this selector will modify our react component on UI.
