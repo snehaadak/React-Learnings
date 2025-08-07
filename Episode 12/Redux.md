@@ -6,6 +6,7 @@
 - What is `Redux`?
 - Redux `Architecture`
 - Why do we `use` Redux?
+- Steps to use redux in project?
 
 
 
@@ -33,3 +34,12 @@ How to `read` the data from the slice or redux store to our UI?
 
 ## Why do we `use` Redux?
 A: 
+
+
+## Steps to use redux in project?
+    - Install @redux/toolkit and react redux
+    - Build our store
+    - connect our store to app
+    - create the slice
+    - dispatch action
+    - read the data using Selector 
