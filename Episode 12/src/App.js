@@ -9,18 +9,21 @@ import AboutUs from "./components/AboutUs";
 import Error from "./components/Error"; 
 import RestuarantMenu from "./components/RestuarantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-
+import { Provider } from "react-redux";
+import reduxStore from "../Utilities/reduxStore";
 
 const Grocery = lazy(()=> import("./components/Grocery")); //Chunking Grocery section
 
 
 const Applayout = () => { 
     return(
+        <Provider store={reduxStore}>
         <div className ="app">
             <HeaderComp/>
             <Outlet/>
             <Footer/>
         </div>
+        </Provider>
     )
 }
 

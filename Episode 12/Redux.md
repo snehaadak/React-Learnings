@@ -37,7 +37,7 @@ A:
 
 
 ## Steps to use redux in project?
-    - Install @redux/toolkit and react redux
+    - Install @reduxjs/toolkit and react redux
     - Build our store
     - connect our store to app
     - create the slice

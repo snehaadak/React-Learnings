@@ -1,7 +1,10 @@
+import { useDispatch } from "react-redux"
+import { addItem } from "../../Utilities/cartSlice"
+
 
 
 const ItemsList = ({items}) => {
-    console.log(items)
+    const dispatch = useDispatch()
     return (
         <div>
             
@@ -9,7 +12,11 @@ const ItemsList = ({items}) => {
                 <div key={item.card.info.id} className="p-2 m-2 border-b-2 border-gray-400">
                     <div className="py-2 flex justify-between">
                         <span className="">{item.card.info.name} - Rs.{item.card.info.price /100} </span>
-                        <button className="rounded-2xl bg-white px-2"> Add +</button>
+                        <button className="rounded-2xl bg-white px-2" 
+                        onClick={()=>{
+                            //dispatch an actions
+                            dispatch(addItem("pizza"))
+                        }}> Add +</button>
                     </div>
                     <p className="text-xs text-gray-600 w-[500px]">{item.card.info.description}</p>
                 </div>
