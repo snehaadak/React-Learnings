@@ -4,7 +4,8 @@ import { addItem } from "../../Utilities/cartSlice"
 
 
 const ItemsList = ({items}) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch(addItem)
+
     return (
         <div>
             
@@ -15,7 +16,8 @@ const ItemsList = ({items}) => {
                         <button className="rounded-2xl bg-white px-2" 
                         onClick={()=>{
                             //dispatch an actions
-                            dispatch(addItem("pizza"))
+                            dispatch(addItem(item))
+                            console.log(item)
                         }}> Add +</button>
                     </div>
                     <p className="text-xs text-gray-600 w-[500px]">{item.card.info.description}</p>
