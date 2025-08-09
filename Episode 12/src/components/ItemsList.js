@@ -18,7 +18,7 @@ const ItemsList = ({items}) => {
                             //dispatch an actions
                             dispatch(addItem(item))
                             console.log(item)
-                        }}> Add +</button>
+                        }}> Add +</button> 
                     </div>
                     <p className="text-xs text-gray-600 w-[500px]">{item.card.info.description}</p>
                 </div>
