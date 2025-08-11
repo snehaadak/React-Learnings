@@ -33,7 +33,7 @@ How to `read` the data from the slice or redux store to our UI?
 
 
 ## Why do we `use` Redux?
-A: 
+A:  
 
 
 ## Steps to use redux in project?
