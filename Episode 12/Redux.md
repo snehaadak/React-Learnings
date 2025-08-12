@@ -58,3 +58,63 @@ A:
             <BodyComp/>
             <FooterComp/>   
         </div>
+
+3) Create a slice: 
+    - We will create all the slices under utilities
+    - we use a function called `createSlice` to create whater slice we want to. That takes in the configuration we will need to create a slice. we import this createSlice from reduxjs/toolkit
+    - const Slicefunctioname = createSlice({
+        name: name of that slice,
+        initialState: {what will be the initial state of our slice},
+        reducer:{action mapping to function....}
+    })
+    - we will write the reducer function corresponding to each action. we can say actions are like the API to connect to our store.
+    - reducer : {
+        `actionName :  (state,action) => {reducer function} ` 
+    }
+    reducer function mapped to it this is the function that actually modifies our slices. It gets access to our state and actions as a parameter.
+    - we export two things from our slice i.e. our actions and our reducers where we will export reducer as default export and actions as named imports
+        - const cartSlice = createSlice({
+            name: cart,
+            initialState: {items: []},
+            reducer: {          //this is the reducer of our slice
+                addItem : (state,action) => { //directly modifying the exisiting state
+                    state.items.push(action.payload);       
+                },
+                removeItem : (state) => {
+                    state.item.pop();
+                },
+                clearCart: (state) => {
+                    state.items.length = 0;
+                }
+            }
+        })
+        export default cartSlice.reducer;
+        export const {addItem, removeItem, clearCart} = cartSLice.actions;
+    - `Add` this slice to store that we created in step 1
+        import cartReducer from ./cartSlice
+        const reduxstore = configurestore({
+            reducer: {          //this is the whole big reducer of our entire cart
+                cart: cartReducer 
+            }
+        })
+
+4) Dispatch the action: 
+    - We use `useDispatch` hook import from react-redux library
+    - useDispatch takes in the action as the parameter.
+    - whatever we pass in to the action of this dispatch would got to the reducer function action and inside the payload
+        const dispatch = useDispatch(addItem)
+        <button className="button" 
+            onClick={()=>{
+                //dispatch an actions
+                dispatch(addItem(item))
+                console.log(item)
+                }}> Add +
+        </button> 
+
+
+
+5) creating a selector to reflect this data on our UI:
+    - We use `useSelector` hook import from react-redux library
+    - this hook will give us the access to our store i.e `we are subscribing to our store using selector`
+    - we need to tell it which part of the store we need the access to or which specific portion we need to subscribe to,for our project that would be items
+        const cartItems = useSelector((store)=>store.cart.items) which gives us access to items
