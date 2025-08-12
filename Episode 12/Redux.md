@@ -38,8 +38,23 @@ A:
 
 ## Steps to use redux in project?
     - Install @reduxjs/toolkit and react redux
-    - Build our store
+    - Build our store 
     - connect our store to app
     - create the slice
     - dispatch action
     - read the data using Selector 
+
+1) Build our Store: 
+    - we create store in `utilities` of our project
+    - we import `configureStore` from reduxjs/toolkit
+    - const reduxstore = configurestore({slices.....}) and export the reduxstore
+
+2) Connect the store to our App:
+    - we import the provider to our root file from redux-react. we will use this provider to provide(connect) our app to our store.
+    - we will wrap our whole application in between the provider tags where our store would be passed in as a prop.
+    - <Provider store={reduxstore}>
+        <div className="app">
+            <HeaderComp/>
+            <BodyComp/>
+            <FooterComp/>   
+        </div>
