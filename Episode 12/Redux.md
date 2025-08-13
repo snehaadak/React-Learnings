@@ -7,16 +7,25 @@
 - Redux `Architecture`
 - Why do we `use` Redux?
 - Steps to use redux in project?
-
-
+- How to optimize our App while using a `selector`?
+- Difference between `reducer` and `reducers`?
 
 
 
 
 # Answers:
 
+
 ## What is `Redux`?
-A: It is a Library used to manage state
+A: It is a Library used to manage state. Redux is like a central storage room for your app’s data, so every component can get the latest info without passing props around like a chain letter.
+Instead of each component keeping its own copy of data (and getting out of sync), Redux keeps one single source of truth — the store.
+
+    Eg: Imagine an online cart:
+        - Without Redux: Each page keeps its own cart data → you add an item on the product page, but the header’s cart count doesn’t update until refresh.
+        - With Redux: The cart data lives in the store → when you add an item, the store updates, and all subscribed components (cart icon, cart page, checkout) instantly see the change.
+    
+In short: Redux = `a global state manager for predictable, synchronized UI updates`.
+
 
 
 ## Redux `Architecture` 
@@ -32,12 +41,17 @@ How to `read` the data from the slice or redux store to our UI?
     (2) when we use the selector these phenomenon is known as `subscribing to the store` i.e our header component is subscribed to the store. which means it is in sync with our redux store. when the data in store changes the react component updates automatically.
 
 
+
 ## Why do we `use` Redux?
-A:  
+A: Redux makes sure all your components are always on the same page, with no unnecessary data-passing or outdated info.
+    - Redux is like a central storage room for your app’s data, so every component can get the latest info without passing props around like a chain letter.
+    - Instead of each component keeping its own copy of data (and getting out of sync), Redux keeps one single source of truth — the store.
+        
+
 
 
 ## Steps to use redux in project?
-    - Install @reduxjs/toolkit and react redux
+A:  - Install @reduxjs/toolkit and react redux
     - Build our store 
     - connect our store to app
     - create the slice
@@ -118,3 +132,13 @@ A:
     - this hook will give us the access to our store i.e `we are subscribing to our store using selector`
     - we need to tell it which part of the store we need the access to or which specific portion we need to subscribe to,for our project that would be items
         const cartItems = useSelector((store)=>store.cart.items) which gives us access to items
+
+
+
+## How to optimize our App while using a `selector`?
+A: instead of subscribing to the whole store and then extracting the data that we require. instead subscribe to the specific data that we need. Because when we subscribe to the store when there are updates to the store to some other slice we wont be needing our slices to reload.Hence we subscribe to the very specific small portion of the store.
+
+
+
+## Difference between `reducer` and `reducers`?
+A: when we create the store it uses `reducer` which is the outside big reducer and it consists of `reducers` of the slices. but while exporting the reducers of the slice we export the `slice.reducer`
