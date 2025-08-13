@@ -27,7 +27,7 @@ const HeaderComp = () => {
                     <li className="p-4 font-serif"><Link to ="/">Home</Link></li>
                     <li className="p-4 font-serif"><Link to="/about">About Us</Link></li>
                     <li className="p-4 font-serif"><Link to="/grocery">Grocery Section</Link></li>
-                    <li className="p-4 font-serif">Cart- ({cartItems.length} items)</li>
+                    <li className="p-4 font-serif"><Link to="/cart">Cart- ({cartItems.length} items)</Link></li>
 
                     <li className="p-4 font-serif"><button className="border-2 w-20 bg-gray-300 rounded-2xl"
                         onClick = {() => { 

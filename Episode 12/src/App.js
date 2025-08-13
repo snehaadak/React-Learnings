@@ -6,11 +6,13 @@ import HeaderComp from "./components/HeaderComp";
 import BodyComp from "./components/BodyComp";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
+import Cart from "./components/Cart";
 import Error from "./components/Error"; 
 import RestuarantMenu from "./components/RestuarantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import reduxStore from "../Utilities/reduxStore";
+
 
 const Grocery = lazy(()=> import("./components/Grocery")); //Chunking Grocery section
 
@@ -44,6 +46,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/grocery",
                 element: <Grocery/>
+            },
+            {
+                path: "/cart",
+                element: <Cart/>
             },
             {
                 path: "/restuarants/:resID",
