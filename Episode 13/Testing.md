@@ -4,6 +4,7 @@
 
 - Types of Testing? 
 - Types of testing a developer can do for React Application?
+- `React Testing Library`
 
 
 
@@ -27,3 +28,7 @@ A: Unit Testing, Integration Testing, End to End Testing (E2E)
 
 - `End to End Testing`: Testing a react application from the time the user lands on the page upto the time it leaves our page and testing all te flows that user might use during whole process.
     E2E testing requires tools like Selenium, Cypress, Puppeteer
+
+
+## What is `React Testing Library`?
+A: It is the most standard library used in market for react testing. It is built on the top of `DOM Testing Library`.
