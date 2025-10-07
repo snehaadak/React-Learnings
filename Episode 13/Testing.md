@@ -43,7 +43,8 @@ A: - Install React Testing Library: npm install -D @testing-library/react
    - Install Babel dependencies: npm install --save-dev babel-jest @babel/core @babel/preset-env
    - Configure babel in file babel.config.js
    - Change parcel's behaviour to accomodate the babel's configuration for Jest. because as parcel has its own babel configuration for babel and hence for using jest we have our separate config which would be overridden. hence we need to change the parcel's behaviour as well. For this create .parcelrc and add the configuration to disable babel transpilation.
-   - Create a jest configuration by `npx jest --init`
+   - Create a jest configuration by `npx jest --init` this is the old method to do it the new one is `npx create-jest@latest`
+   - Install jsdom library separately if you are using jest version >28 by `npm install --save-dev jest-environment-jsdom`
 
 
 ## What is `jsdom test environment`?
