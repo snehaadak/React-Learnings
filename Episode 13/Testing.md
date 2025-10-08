@@ -8,6 +8,7 @@
 - Setting up `Testing Libraries`.
 - What is `jsdom test environment`?
 - How to run our test cases?
+- Where to write testcases?
 
 
 
@@ -53,3 +54,16 @@ A: When we run the test cases there is no server running there is no browser whe
 
 ## How to run our test cases?
 A: To run our created test cases do `npm run test`. we can do this in very start when we do it right after setup we get message "No tests found" hence we can conclude that our jest library was setup perfectly.
+
+
+## Where to write testcases?
+A: We write the testcases inside files of the folder with name `__tests__` anywhere in our folder structure. Jest tracks all the files that are present inside of this folder. All the files created with extension .js or .ts they are considered as the testfiles. even files ending in .test.js , .test.ts or .spec.js | .spec.ts. in the naming convetion of `__test__` the two underscores together is known as dunder hence it can be also called as dunder tests.
+
+
+## How do we write a TestCase?
+A: we use a function called as `test`. and this function basically takes in two arguments 1st being the string that is the description of the testcase and second to be the callback function that is the actual implementation of the testcase.
+    syntax:    test( " ", ()=>{
+                        const result = call your function to be tested
+                        expect(result).toBe(ur manually calculated answer or something that we know is gonna be the result)
+                })
+                the above mentioned `expect().toBe()` part is known as `Assertion`
