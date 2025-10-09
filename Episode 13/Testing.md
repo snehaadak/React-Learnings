@@ -85,4 +85,8 @@ To test a React UI component that component should be rendered to the jsdom (tes
 
 
 ## How the UI Component testing works backend?
-A: When we render some component on the jsdom first
+A: Every Test case has common three basic Steps that it follows: 
+    1) Render
+    2) Query
+    3) Assert
+    When we render some component on the jsdom first. The `screen.getXYZ` we do the known as `quering` gets us the JSX element, or react element for us. and to this query we give the `assertion` by `expect().toBeXYZ`
