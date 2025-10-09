@@ -9,6 +9,8 @@
 - What is `jsdom test environment`?
 - How to run our test cases?
 - Where to write testcases?
+- How to test a UI component?
+- How the UI Component testing works backend?
 
 
 
@@ -46,6 +48,8 @@ A: - Install React Testing Library: npm install -D @testing-library/react
    - Change parcel's behaviour to accomodate the babel's configuration for Jest. because as parcel has its own babel configuration for babel and hence for using jest we have our separate config which would be overridden. hence we need to change the parcel's behaviour as well. For this create .parcelrc and add the configuration to disable babel transpilation.
    - Create a jest configuration by `npx jest --init` this is the old method to do it the new one is `npx create-jest@latest`
    - Install jsdom library separately if you are using jest version >28 by `npm install --save-dev jest-environment-jsdom`
+   - we cannot directly test thte jsx code with our jest for that we will install a new library `@babel/preset-react` and include @babel/preset-react inside our babel config and give the runtime to be automatic (if we dont give automatic runtime this will take default or any random values and throw errors)
+   - Install one more library `@testing-library/jest-dom` which is installed for using `toBeInTheDocument`
 
 
 ## What is `jsdom test environment`?
@@ -67,3 +71,18 @@ A: we use a function called as `test`. and this function basically takes in two 
                         expect(result).toBe(ur manually calculated answer or something that we know is gonna be the result)
                 })
                 the above mentioned `expect().toBe()` part is known as `Assertion`
+
+
+## How to test a UI component?
+A: 
+To test a React UI component that component should be rendered to the jsdom (testing environment/browser). to render we wiil use the `render` menthod provided by testing-library/react. Everything that is rendered on the jsdom is on `screen`. so basically whatever is getting rendered we can view it via object screen this object can be used to find, or get anything that is rendered on it. for eg: findByTitle,getByrole, etc. `toBeInTheDocument()` function checks whether the expected thing is inside that document or not.
+
+    syntax: test("Should render XYZ component", ()=>{
+                render(<XYZ/>)
+                const heading = screen.getByRole("heading")    //here we are fetching the heading and storing it in var
+                expect(heading).toBeInTheDocument()  
+            })
+
+
+## How the UI Component testing works backend?
+A: When we render some component on the jsdom first
