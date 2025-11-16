@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { LOGO_URL } from "../../Utilities/constants";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import useOnlineStatus from "../../Utilities/useOnlineStatus";
 import { useSelector } from "react-redux";
 

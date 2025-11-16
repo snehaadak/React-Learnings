@@ -11,7 +11,7 @@
 - Where to write testcases?
 - How to test a UI component?
 - How the UI Component testing works backend?
-
+-Grouping of Testcases.
 
 
 
@@ -19,7 +19,7 @@
 
 
 ## Types of Testing? 
-A: Manual 
+A: Manual and Automation
 
 
 
@@ -65,7 +65,7 @@ A: We write the testcases inside files of the folder with name `__tests__` anywh
 
 
 ## How do we write a TestCase?
-A: we use a function called as `test`. and this function basically takes in two arguments 1st being the string that is the description of the testcase and second to be the callback function that is the actual implementation of the testcase.
+A: we use a function called as `test` we can also use `it` as an alias for word test. and this function basically takes in two arguments 1st being the string that is the description of the testcase and second to be the callback function that is the actual implementation of the testcase.
     syntax:    test( " ", ()=>{
                         const result = call your function to be tested
                         expect(result).toBe(ur manually calculated answer or something that we know is gonna be the result)
@@ -90,3 +90,18 @@ A: Every Test case has common three basic Steps that it follows:
     2) Query
     3) Assert
     When we render some component on the jsdom first. The `screen.getXYZ` we do the known as `quering` gets us the JSX element, or react element for us. and to this query we give the `assertion` by `expect().toBeXYZ`
+
+
+## Grouping of Testcases.
+A: We can group multiple similar type of test case together under a single block using `describe`
+    syntax: describe("Title of the Group", ()=>{
+                test("TestCase1",()=>{
+
+                });
+                test("TestCase2",()=>{
+
+                });
+                test("TestCase3",()=>{
+
+                });
+            })
