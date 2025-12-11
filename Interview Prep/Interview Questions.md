@@ -1,5 +1,6 @@
 ## Basic Questions
 
+
 1. **What is React?**
     - React is a JavaScript library for building user interfaces, developed by Facebook. It allows you to build single-page applications with a component-based architecture.
 
