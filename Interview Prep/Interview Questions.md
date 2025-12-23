@@ -889,3 +889,347 @@
       );
     }
     ```
+
+71. **How do you test React components?**
+    - Use testing libraries like `React Testing Library` and `Jest` to write unit tests and integration tests.
+
+    ```jsx
+    import { render, screen } from '@testing-library/react';
+    import MyComponent from './MyComponent';
+
+    test('renders component', () => {
+      render(<MyComponent />);
+      expect(screen.getByText(/hello/i)).toBeInTheDocument();
+    });
+    ```
+
+72. **What are the different ways to test React components?**
+    - **Unit tests**: Test individual components in isolation.
+    - **Integration tests**: Test how components work together.
+    - **End-to-end tests**: Test the entire application flow.
+
+73. **What is the purpose of the React Developer Tools?**
+    - React Developer Tools helps inspect the React component tree, view props and state, and debug performance issues.
+
+74. **How do you use the React Developer Tools?**
+    - Install the React Developer Tools extension for your browser and use it to inspect React components and their state.
+
+75. **How do you handle errors in a React application?**
+    - Use error boundaries to catch and handle errors in the component tree.
+
+    ```jsx
+    function App() {
+      return (
+        <ErrorBoundary>
+          <MyComponent />
+        </ErrorBoundary>
+      );
+    }
+    ```
+
+76. **How do you use the ErrorBoundary component?**
+    - Wrap your components with an `ErrorBoundary` to catch and handle errors.
+
+    ```jsx
+    class ErrorBoundary extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { hasError: false };
+      }
+
+      static getDerivedStateFromError() {
+        return { hasError: true };
+      }
+
+      componentDidCatch(error, errorInfo) {
+        // Log error
+      }
+
+      render() {
+        if (this.state.hasError) {
+          return <h1>Something went wrong.</h1>;
+        }
+
+        return this.props.children;
+      }
+    }
+    ```
+
+77. **What are controlled and uncontrolled components in React?**
+    - **Controlled components**: Manage form data using React state.
+    - **Uncontrolled components**: Manage form data using the DOM directly.
+
+78. **How do you handle forms in React?**
+    - Use controlled components to manage form inputs with React state.
+
+    ```jsx
+    function MyForm() {
+      const [value, setValue] = useState('');
+
+      const handleChange = (event) => {
+        setValue(event.target.value);
+      };
+
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle submit
+      };
+
+      return (
+        <form onSubmit={handleSubmit}>
+          <input type="text" value={value} onChange={handleChange} />
+          <button type="submit">Submit</button>
+        </form>
+      );
+    }
+    ```
+
+79. **What are pure components in React?**
+    - Pure components only re-render when their props or state change, optimizing performance by avoiding unnecessary renders.
+
+80. **How do you implement a pure component in React?**
+    - Use `React.PureComponent` or `React.memo` for function components.
+
+    ```jsx
+    class MyPureComponent extends React.PureComponent {
+      // Implementation
+    }
+
+    const MyComponent = React.memo(function MyComponent(props) {
+      // Implementation
+    });
+    ```
+
+81. **What is the use of the useRef hook?**
+    - `useRef` returns a mutable object whose `.current` property is initialized with the passed argument and persists for the full lifetime of the component.
+
+    ```jsx
+    const inputRef = useRef(null);
+
+    function focusInput() {
+      inputRef.current.focus();
+    }
+
+    return <input ref={inputRef} />;
+    ```
+
+82. **How do you use the useImperativeHandle hook?**
+    - Customize the instance value exposed when using `ref` with `forwardRef`.
+
+    ```jsx
+    const FancyInput = React.forwardRef((props, ref) => {
+      const inputRef = useRef();
+
+      useImperativeHandle(ref, () => ({
+        focus: () => inputRef.current.focus()
+      }));
+
+      return <input ref={inputRef} />;
+    });
+    ```
+
+83. **How do you optimize performance in React applications?**
+    - Use techniques like memoization (`React.memo`, `useMemo`), lazy loading, code splitting, and optimizing rendering with `shouldComponentUpdate` or `React.PureComponent`.
+
+84. **How do you use memoization in React?**
+    - Use `React.memo` for components and `useMemo` for values to prevent unnecessary re-renders.
+
+    ```jsx
+    const MemoizedComponent = React.memo(function Component(props) {
+      // Implementation
+    });
+
+    const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+    ```
+
+85. **What are the performance optimization techniques in React?**
+    - **Memoization**: Use `React.memo` and `useMemo`.
+    - **Lazy loading**: Use `React.lazy` and `Suspense`.
+    - **Avoid inline functions**: Define functions outside render methods.
+    - **Code splitting**: Split code into smaller bundles.
+
+86. **How do you use `useMemo` and `useCallback` hooks?**
+    - **`useMemo`**: Memoizes the result of a computation.
+    - **`useCallback`**: Memoizes the function itself.
+
+    ```jsx
+    const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+    const memoizedCallback = useCallback(() => { /* callback code */ }, [dependencies]);
+    ```
+
+87. **How do you handle state updates in functional components?**
+    - Use the `useState` hook to manage and update state.
+
+    ```jsx
+    const [state, setState] = useState(initialState);
+
+    const updateState = (newState) => {
+      setState(newState);
+    };
+    ```
+
+88. **What is the difference between useEffect and useLayoutEffect?**
+    - **`useEffect`**: Runs after the paint, suitable for side effects.
+    - **`useLayoutEffect`**: Runs synchronously after all DOM mutations, useful for layout calculations.
+
+89. **How do you use `useEffect` for cleanup?**
+    - Return a cleanup function from `useEffect` to handle resource cleanup.
+
+    ```jsx
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        // Side effect code
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }, []);
+    ```
+    
+90. **How do you handle asynchronous operations in useEffect?**
+    - Use an asynchronous function inside `useEffect` or handle promises with `then`/`catch`.
+
+    ```jsx
+    useEffect(() => {
+      async function fetchData() {
+        const response = await fetch(url);
+        const data = await response.json();
+        setData(data);
+      }
+
+      fetchData();
+    }, [url]);
+    ```
+
+91. **What is the purpose of the useContext hook?**
+    - `useContext` provides a way to access the context value directly without needing to use a Consumer component.
+
+    ```jsx
+    const value = useContext(MyContext);
+    ```
+
+92. **How do you use useContext with a Context Provider?**
+    - Wrap components with a `Context.Provider` and use `useContext` to access the context value.
+
+    ```jsx
+    const MyContext = React.createContext();
+
+    function App() {
+      return (
+        <MyContext.Provider value={/* context value */}>
+          <MyComponent />
+        </MyContext.Provider>
+      );
+    }
+
+    function MyComponent() {
+      const value = useContext(MyContext);
+      // Use context value
+    }
+    ```
+
+93. **What is the purpose of the `useImperativeHandle` hook?**
+    - `useImperativeHandle` customizes the instance value exposed to parent components when using `ref`.
+
+    ```jsx
+    useImperativeHandle(ref, () => ({
+      focus: () => { /* custom focus method */ }
+    }));
+    ```
+
+94. **How do you implement server-side rendering with React?**
+    - Use frameworks like Next.js or libraries like `react-dom/server` to render React components to HTML on the server.
+
+    ```jsx
+    import React from 'react';
+    import ReactDOMServer from 'react-dom/server';
+    import App from './App';
+
+    const html = ReactDOMServer.renderToString(<App />);
+    ```
+
+95. **What is Next.js and how does it enhance React applications?**
+    - Next.js is a React framework for server-side rendering, static site generation, and routing. It simplifies building production-ready React applications with optimized performance and SEO.
+
+96. **How do you set up a Next.js project?**
+    - Use the `create-next-app` command to initialize a Next.js project.
+
+    ```bash
+    npx create-next-app my-next-app
+    ```
+
+97. **How do you create dynamic routes in Next.js?**
+    - Use file-based routing with dynamic segments in the `pages` directory.
+
+    ```jsx
+    // pages/[id].js
+    export default function Page({ id }) {
+      return <div>Page ID: {id}</div>;
+    }
+
+    export async function getServerSideProps(context) {
+      const { id } = context.params;
+      return { props: { id } };
+    }
+    ```
+
+98. **What is static site generation (SSG) and how do you implement it in Next.js?**
+    - SSG generates HTML at build time. Use `getStaticProps` to fetch data and generate static pages.
+
+    ```jsx
+    export async function getStaticProps() {
+      const data = await fetchData();
+      return { props: { data } };
+    }
+    ```
+
+99. **What is server-side rendering (SSR) and how do you implement it in Next.js?**
+    - SSR generates HTML on each request. Use `getServerSideProps` to fetch data on each request.
+
+    ```jsx
+    export async function getServerSideProps(context) {
+      const data = await fetchData();
+      return { props: { data } };
+    }
+    ```
+
+100. **How do you handle API routes in Next.js?**
+    - Define API routes in the `pages/api` directory.
+
+```jsx
+    // pages/api/hello.js
+    export default function handler(req, res) {
+      res.status(200).json({ message: 'Hello' });
+    }
+```
+
+101. **What is the use of the `getStaticPaths` function in Next.js?**
+    - `getStaticPaths` defines which dynamic routes to pre-render at build time.
+
+```jsx
+    export async function getStaticPaths() {
+      const paths = await fetchPaths();
+      return { paths, fallback: false };
+    }
+```
+
+102. **How do you handle environment variables in Next.js?**
+    - Define environment variables in `.env.local` and access them using `process.env`.
+
+```jsx
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+```
+
+103. **What are API routes in Next.js and how do you use them?**
+    - API routes allow serverless functions to handle backend logic within the Next.js application. Define them in the `pages/api` directory.
+```jsx
+    // pages/api/hello.js
+    export default function handler(req, res) {
+      res.status(200).json({ message: 'Hello' });
+    }
+```
+
+104. **How do you use TypeScript with Next.js?**
+    - Add TypeScript by installing the necessary packages and creating a `tsconfig.json` file.
+```bash
+    npm install --save-dev typescript @types/react @types/node
+```
